@@ -48,7 +48,7 @@ namespace FileHashes
                     hash = md5.ComputeHash(File.ReadAllBytes(file.FullName)).ByteArrayToHexViaLookup32().ToUpperInvariant();
                 }
 
-                hs.Add(file.FullName + " " + hash);
+                hs.Add(file.FullName + " " + hash + " " + file.Length.ToString());
             }
 
             File.WriteAllLines("FileHashes.list", hs.ToArray());
